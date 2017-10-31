@@ -35,7 +35,8 @@ class Button extends React.Component {
       <SafeAnchor
         {...elementProps}
         className={classNames(
-          className, elementProps.disabled && 'disabled',
+          className,
+          elementProps.disabled && 'disabled',
         )}
       />
     );
