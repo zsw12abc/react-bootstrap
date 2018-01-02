@@ -120,10 +120,6 @@ class Dropdown extends React.Component {
   constructor(props, context) {
     super(props, context);
 
-    this.handleClick = this.handleClick.bind(this);
-    this.handleKeyDown = this.handleKeyDown.bind(this);
-    this.handleClose = this.handleClose.bind(this);
-
     this._focusInDropdown = false;
     this.lastOpenEventType = null;
   }
@@ -181,7 +177,7 @@ class Dropdown extends React.Component {
     }
   }
 
-  handleClick(event) {
+  handleClick = (event) => {
     if (this.props.disabled) {
       return;
     }
@@ -189,7 +185,7 @@ class Dropdown extends React.Component {
     this.toggleOpen(event, { source: 'click' });
   }
 
-  handleClose(event, eventDetails) {
+  handleClose = (event, eventDetails) => {
     if (!this.props.open) {
       return;
     }
@@ -197,7 +193,7 @@ class Dropdown extends React.Component {
     this.toggleOpen(event, eventDetails);
   }
 
-  handleKeyDown(event) {
+  handleKeyDown = (event) => {
     if (this.props.disabled) {
       return;
     }
