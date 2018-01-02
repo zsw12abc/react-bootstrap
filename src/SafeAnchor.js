@@ -34,14 +34,7 @@ function isTrivialHref(href) {
  * links, which is usually desirable for Buttons, NavItems, MenuItems, etc.
  */
 class SafeAnchor extends React.Component {
-  constructor(props, context) {
-    super(props, context);
-
-    this.handleClick = this.handleClick.bind(this);
-    this.handleKeyDown = this.handleKeyDown.bind(this);
-  }
-
-  handleClick(event) {
+  handleClick = (event) => {
     const { disabled, href, onClick } = this.props;
 
     if (disabled || isTrivialHref(href)) {
@@ -58,7 +51,7 @@ class SafeAnchor extends React.Component {
     }
   }
 
-  handleKeyDown(event) {
+  handleKeyDown = (event) => {
     if (event.key === ' ') {
       event.preventDefault();
       this.handleClick(event);
@@ -68,7 +61,7 @@ class SafeAnchor extends React.Component {
   }
 
   render() {
-    const { componentClass: Component, disabled, onKeyDown, ...props } = this.props;
+    const { componentClass: Component, disabled, ...props } = this.props;
 
     if (isTrivialHref(props.href)) {
       props.role = props.role || 'button';
